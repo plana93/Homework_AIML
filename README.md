@@ -1,4 +1,4 @@
-# FPAR-Project-MLDL
+# FPAR-Project-MLDL (todo!)
 
 This directory contains the models that implement First Person Action Recognition using a Resnet34 + CAM and a convLSTM module as a spatial attention network, paired with  a temporal network, again a Resnet34, that takes optical flows as an input to
 extract temporal features.

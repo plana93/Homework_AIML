@@ -110,6 +110,11 @@ class GTEA61(VisionDataset):
             # since it is GUARANTEED that all users have same classes
             print(folders[0])
             classes = os.listdir(os.path.join(frame_dir, folders[0]))
+            classes_tmp = []
+            for i in classes:
+                if '.DS_Store' not in i :
+                    classes_tmp.append(i)
+            classes = classes_tmp
             self.label_map = {act: i for i, act in enumerate(classes)}
         for user in folders:
             print(user)

@@ -108,7 +108,6 @@ class GTEA61(VisionDataset):
         if label_map is None:
             # now we build the label map; we take folders[0] just to get all class names
             # since it is GUARANTEED that all users have same classes
-            print(folders[0])
             classes = sorted(os.listdir(os.path.join(frame_dir, folders[0])))
             classes_tmp = []
             for i in classes:
@@ -117,9 +116,7 @@ class GTEA61(VisionDataset):
             classes = classes_tmp
             self.label_map = {act: i for i, act in enumerate(classes)}
         for user in sorted(folders):
-            print(user)
             if ".DS_Store" in user:
-                print(user)
                 continue
             user_dir = os.path.join(frame_dir, user)
             # user dir it's gonna be ../GTEA61/processed_frames2/S1 or any other user
@@ -131,8 +128,7 @@ class GTEA61(VisionDataset):
                 for element in sorted(os.listdir(action_dir)):
                     if ".DS_Store" in element:
                         continue
-                    else:
-                        print(element)
+
                     # we add rgb to the path since there is an additional folder inside S1/1/rgb
                     # before the frames
                     frames = os.path.join(action_dir, element, RGB_FOLDER)

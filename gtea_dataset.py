@@ -131,6 +131,8 @@ class GTEA61(VisionDataset):
                 for element in os.listdir(action_dir):
                     if ".DS_Store" in element:
                         continue
+                    else:
+                        print(element)
                     # we add rgb to the path since there is an additional folder inside S1/1/rgb
                     # before the frames
                     frames = os.path.join(action_dir, element, RGB_FOLDER)

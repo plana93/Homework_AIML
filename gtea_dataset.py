@@ -109,26 +109,26 @@ class GTEA61(VisionDataset):
             # now we build the label map; we take folders[0] just to get all class names
             # since it is GUARANTEED that all users have same classes
             print(folders[0])
-            classes = os.listdir(os.path.join(frame_dir, folders[0]))
+            classes = sorted(os.listdir(os.path.join(frame_dir, folders[0])))
             classes_tmp = []
             for i in classes:
                 if '.DS_Store' not in i :
                     classes_tmp.append(i)
             classes = classes_tmp
             self.label_map = {act: i for i, act in enumerate(classes)}
-        for user in folders:
+        for user in sorted(folders):
             print(user)
             if ".DS_Store" in user:
                 print(user)
                 continue
             user_dir = os.path.join(frame_dir, user)
             # user dir it's gonna be ../GTEA61/processed_frames2/S1 or any other user
-            for action in os.listdir(user_dir):
+            for action in sorted(os.listdir(user_dir)):
                 if ".DS_Store" in action:
                     continue
                 action_dir = os.path.join(user_dir, action)
                 # inside an action dir we can have 1 or more videos
-                for element in os.listdir(action_dir):
+                for element in sorted(os.listdir(action_dir)):
                     if ".DS_Store" in element:
                         continue
                     else:

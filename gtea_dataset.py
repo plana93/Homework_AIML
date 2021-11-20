@@ -84,7 +84,7 @@ class GTEA61(VisionDataset):
         # we expect datadir to be GTEA61, so we add FRAME_FOLDER to get to the frames
         frame_dir = os.path.join(self.datadir, FRAME_FOLDER)
         users = os.listdir(frame_dir)
-        if len(users) != 4:
+        if len(users) < 4:
             raise FileNotFoundError("you specified the wrong directory")
         if TEST_USER not in users:
             raise FileNotFoundError("S2 folder not found")

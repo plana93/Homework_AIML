@@ -104,12 +104,20 @@ class GTEA61(VisionDataset):
             classes = os.listdir(os.path.join(frame_dir, folders[0]))
             self.label_map = {act: i for i, act in enumerate(classes)}
         for user in folders:
+            print(user)
+            if "DS" in user:
+                print(user)
+                continue
             user_dir = os.path.join(frame_dir, user)
             # user dir it's gonna be ../GTEA61/processed_frames2/S1 or any other user
             for action in os.listdir(user_dir):
+                if "DS" in action:
+                    continue
                 action_dir = os.path.join(user_dir, action)
                 # inside an action dir we can have 1 or more videos
                 for element in os.listdir(action_dir):
+                    if "DS" in element:
+                        continue
                     # we add rgb to the path since there is an additional folder inside S1/1/rgb
                     # before the frames
                     frames = os.path.join(action_dir, element, RGB_FOLDER)

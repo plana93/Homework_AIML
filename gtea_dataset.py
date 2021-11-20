@@ -108,6 +108,7 @@ class GTEA61(VisionDataset):
         if label_map is None:
             # now we build the label map; we take folders[0] just to get all class names
             # since it is GUARANTEED that all users have same classes
+            print(folders[0])
             classes = os.listdir(os.path.join(frame_dir, folders[0]))
             self.label_map = {act: i for i, act in enumerate(classes)}
         for user in folders:
